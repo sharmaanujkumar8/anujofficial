@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuj Kumar Sharma - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        header {
+            margin-top: 50px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 20px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            animation: fadeIn 1.5s ease;
+        }
+        .card h2 {
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            color: #ffd700;
+        }
+        .card p, .card ul {
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: left;
+            margin: 0;
+        }
+        .contact {
+            margin: 20px 0;
+        }
+        .contact a {
+            color: #ffd700;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        footer {
+            margin: 30px 0;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Anuj Kumar Sharma</h1>
+        <p>Oracle APEX Developer | PL/SQL Expert</p>
+    </header>
+
+    <div class="contact">
+        <a href="mailto:sharmaanujkumar8@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/anujkrsharmaeee/" target="_blank">LinkedIn</a>
+    </div>
+
+    <div class="card">
+        <h2>About Me</h2>
+        <p>Hi! I'm Anuj, an experienced Oracle APEX Developer with over 5 years of hands-on expertise building secure, scalable applications for global enterprises. I'm passionate about solving complex business problems using SQL, PL/SQL, and cutting-edge APEX solutions.</p>
+    </div>
+
+    <div class="card">
+        <h2>Skills</h2>
+        <ul>
+            <li>Oracle APEX, PL/SQL, Oracle SQL</li>
+            <li>HTML5, CSS, JavaScript, Python3</li>
+            <li>SDLC, Agile Methodologies, Design Thinking</li>
+            <li>Database Design, SQL Optimization, API Integration</li>
+            <li>Training and Mentoring Interns</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Recent Achievements</h2>
+        <ul>
+            <li>Implemented advanced RAG solution using Cohere API in Oracle APEX</li>
+            <li>Earned Oracle APEX Cloud Developer Professional Certification (2025)</li>
+            <li>Managed and enhanced 12+ live APEX applications</li>
+            <li>Trained new interns and junior developers in Oracle APEX best practices</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Experience</h2>
+        <ul>
+            <li>Oracle (Oct 2023 - Present) - Application Developer II</li>
+            <li>Tata Consultancy Services (Jan 2020 - Oct 2023) - PL/SQL | APEX Developer</li>
+        </ul>
+    </div>
+
+    <footer>
+        &copy; 2025 Anuj Kumar Sharma | Bengaluru, India
+    </footer>
+</body>
+</html>
