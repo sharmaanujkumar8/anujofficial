@@ -3,121 +3,425 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuj Kumar Sharma - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <title>Anuj Sharma | Portfolio</title>
     <style>
+        :root {
+            --ink: #2e2416;
+            --paper: #f7efe2;
+            --paper-2: #efe2c8;
+            --accent: #8f4c2d;
+            --accent-2: #4a5d4a;
+            --shadow: rgba(46, 36, 22, 0.16);
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
         body {
             margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(255,255,255,0.65), transparent 32%),
+                linear-gradient(135deg, #e8d8bd 0%, #d9c9a6 100%);
             min-height: 100vh;
-            text-align: center;
-        }
-        header {
-            margin-top: 50px;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.2rem;
-            margin: 0;
-        }
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 30px 20px;
-            width: 90%;
-            max-width: 800px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            animation: fadeIn 1.5s ease;
-        }
-        .card h2 {
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            color: #ffd700;
-        }
-        .card p, .card ul {
-            font-size: 1rem;
             line-height: 1.6;
-            text-align: left;
+            padding: 24px 18px 48px;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+            opacity: 0.45;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 0;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            z-index: 10;
+        }
+
+        .sheet {
+            max-width: 1080px;
+            margin: 0 auto;
+            background: var(--paper);
+            border: 2px solid rgba(46, 36, 22, 0.16);
+            box-shadow: 0 16px 40px var(--shadow);
+            border-radius: 22px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .sheet::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(255,255,255,0.25), transparent 45%, rgba(0,0,0,0.03));
+            pointer-events: none;
+        }
+
+        .hero {
+            padding: 42px 40px 30px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(143, 76, 45, 0.08));
+            border-bottom: 1px solid rgba(46, 36, 22, 0.12);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 0 0 10px;
+        }
+
+        h1, h2, h3 {
+            font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
             margin: 0;
         }
-        .contact {
-            margin: 20px 0;
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 8px;
         }
-        .contact a {
-            color: #ffd700;
+
+        .intro {
+            font-size: 1.02rem;
+            max-width: 760px;
+            margin: 0 0 18px;
+            color: #4f4030;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .chip {
+            background: rgba(255,255,255,0.7);
+            padding: 8px 12px;
+            border: 1px solid rgba(46, 36, 22, 0.12);
+            border-radius: 999px;
+            font-size: 0.92rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 999px;
             text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
+            color: var(--paper);
+            background: var(--accent);
+            font-weight: 600;
+            border: 1px solid transparent;
+            transition: transform 180ms ease, box-shadow 180ms ease;
         }
-        footer {
-            margin: 30px 0;
-            font-size: 0.9rem;
-            opacity: 0.7;
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(143, 76, 45, 0.2);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        .btn.secondary {
+            background: transparent;
+            color: var(--ink);
+            border-color: rgba(46, 36, 22, 0.18);
+        }
+
+        .typing-line {
+            font-style: italic;
+            color: var(--accent-2);
+            margin-top: 12px;
+            min-height: 1.5em;
+        }
+
+        .content {
+            display: grid;
+            gap: 18px;
+            padding: 24px 24px 32px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.58);
+            border: 1px solid rgba(46, 36, 22, 0.12);
+            border-radius: 18px;
+            padding: 20px 22px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+
+        .card h2 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+
+        .grid {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: 1.2fr 0.8fr;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 14px;
+        }
+
+        .entry {
+            padding: 12px 0;
+            border-bottom: 1px dashed rgba(46, 36, 22, 0.2);
+        }
+
+        .entry:last-child { border-bottom: 0; }
+
+        .entry h3 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .meta {
+            color: var(--accent-2);
+            font-size: 0.92rem;
+            margin-bottom: 6px;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .tag-list li {
+            background: rgba(143, 76, 45, 0.1);
+            border-radius: 999px;
+            padding: 7px 10px;
+            font-size: 0.92rem;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .contact-list a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 0 24px 28px;
+            color: #69563f;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 760px) {
+            body { padding: 16px 10px 32px; }
+            .hero { padding: 28px 18px 22px; }
+            .content { padding: 16px 14px 24px; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Anuj Kumar Sharma</h1>
-        <p>Oracle APEX Developer | PL/SQL Expert</p>
-    </header>
+    <div class="progress-bar" id="progressBar"></div>
+    <main class="sheet" aria-label="Anuj Sharma portfolio">
+        <header class="hero">
+            <p class="eyebrow">Oracle APEX • PL/SQL • AI-enabled apps</p>
+            <h1>Anuj Sharma</h1>
+            <p class="intro">Results-driven Oracle APEX developer with 6+ years of experience building secure, scalable enterprise apps, integrating AI workflows, and improving database performance across finance, supply chain, and energy domains.</p>
+            <div class="hero-meta">
+                <span class="chip">Bengaluru, Karnataka, India</span>
+                <span class="chip">+91 84049 64995</span>
+                <span class="chip">anujofficial.contact@gmail.com</span>
+            </div>
+            <div class="hero-actions">
+                <a class="btn" href="mailto:anujofficial.contact@gmail.com">Email me</a>
+                <a class="btn secondary" href="https://www.linkedin.com/in/anujkrsharmaeee/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a class="btn secondary" href="https://blog.anujofficial.com" target="_blank" rel="noopener noreferrer">Blog</a>
+            </div>
+            <div class="typing-line" id="typingLine">Currently exploring <span id="typingText"></span></div>
+        </header>
 
-    <div class="contact">
-        <a href="mailto:sharmaanujkumar8@gmail.com">Email Me</a>
-        <a href="https://www.linkedin.com/in/anujkrsharmaeee/" target="_blank">LinkedIn</a>
-    </div>
+        <section class="content">
+            <div class="grid">
+                <article class="card">
+                    <h2>Professional summary</h2>
+                    <p>I design and deliver low-code enterprise solutions with Oracle APEX, PL/SQL, and Oracle Database, while keeping security, maintainability, and user experience at the center. I have also worked with Generative AI, RAG, SELECT AI, and Oracle 23ai to bring smarter experiences into business applications.</p>
+                </article>
+                <article class="card">
+                    <h2>Core strengths</h2>
+                    <ul>
+                        <li>Low-code application design and delivery</li>
+                        <li>REST APIs, integrations, and workflow automation</li>
+                        <li>SQL tuning and PL/SQL performance work</li>
+                        <li>Secure authentication and authorization patterns</li>
+                    </ul>
+                </article>
+            </div>
 
-    <div class="card">
-        <h2>About Me</h2>
-        <p>Hi! I'm Anuj, an experienced Oracle APEX Developer with over 5 years of hands-on expertise building secure, scalable applications for global enterprises. I'm passionate about solving complex business problems using SQL, PL/SQL, and cutting-edge APEX solutions.</p>
-    </div>
+            <article class="card">
+                <h2>Experience</h2>
+                <div class="timeline">
+                    <div class="entry">
+                        <h3>Senior Analyst · Wipro</h3>
+                        <div class="meta">2025 – Present · Kolkata, India</div>
+                        <ul>
+                            <li>Led process-flow design and team guidance for Oracle APEX and database development.</li>
+                            <li>Built advanced notification and audit-history features with strong UX patterns.</li>
+                            <li>Contributed to estimation, planning, and delivery practices in Agile teams.</li>
+                        </ul>
+                    </div>
+                    <div class="entry">
+                        <h3>Application Developer II · Oracle IDC</h3>
+                        <div class="meta">2023 – 2025 · Bengaluru, India</div>
+                        <ul>
+                            <li>Delivered interactive APEX experiences with dynamic content, AJAX callbacks, and JavaScript.</li>
+                            <li>Implemented spreadsheet upload, validation, and business-rule processing flows.</li>
+                            <li>Integrated AI chat experiences with RAG, SELECT AI, and search enhancements.</li>
+                        </ul>
+                    </div>
+                    <div class="entry">
+                        <h3>PL/SQL and Oracle APEX Developer · TCS</h3>
+                        <div class="meta">2020 – 2023 · Kolkata, India</div>
+                        <ul>
+                            <li>Built APEX applications using reports, grids, forms, shared components, and data loading.</li>
+                            <li>Optimized SQL performance and reduced execution time for key reports.</li>
+                            <li>Applied secure authorization and SSO-based authentication patterns.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
 
-    <div class="card">
-        <h2>Skills</h2>
-        <ul>
-            <li>Oracle APEX, PL/SQL, Oracle SQL</li>
-            <li>HTML5, CSS, JavaScript, Python3</li>
-            <li>SDLC, Agile Methodologies, Design Thinking</li>
-            <li>Database Design, SQL Optimization, API Integration</li>
-            <li>Training and Mentoring Interns</li>
-        </ul>
-    </div>
+            <div class="grid">
+                <article class="card">
+                    <h2>Skills</h2>
+                    <ul class="tag-list">
+                        <li>Oracle APEX</li>
+                        <li>PL/SQL</li>
+                        <li>Oracle SQL</li>
+                        <li>JavaScript</li>
+                        <li>jQuery</li>
+                        <li>REST APIs</li>
+                        <li>OCI</li>
+                        <li>Generative AI</li>
+                        <li>RAG</li>
+                        <li>SELECT AI</li>
+                        <li>Jira</li>
+                        <li>Agile/Scrum</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h2>Certifications</h2>
+                    <ul>
+                        <li>Oracle APEX Cloud Developer Professional 2025</li>
+                        <li>Oracle APEX Cloud Developer Professional 2023</li>
+                        <li>Oracle Cloud Infrastructure 2023 Certified Associate</li>
+                    </ul>
+                </article>
+            </div>
 
-    <div class="card">
-        <h2>Recent Achievements</h2>
-        <ul>
-            <li>Implemented advanced RAG solution using Cohere API in Oracle APEX</li>
-            <li>Earned Oracle APEX Cloud Developer Professional Certification (2025)</li>
-            <li>Managed and enhanced 12+ live APEX applications</li>
-            <li>Trained new interns and junior developers in Oracle APEX best practices</li>
-        </ul>
-    </div>
+            <article class="card">
+                <h2>Selected highlights</h2>
+                <ul>
+                    <li>Built AI-assisted business workflows with RAG and custom search in Oracle APEX.</li>
+                    <li>Improved SQL performance by up to 40% for reporting workloads.</li>
+                    <li>Delivered robust solutions in finance, supply chain, and energy domains.</li>
+                    <li>Continuously explored autonomous database capabilities on OCI.</li>
+                </ul>
+            </article>
+        </section>
 
-    <div class="card">
-        <h2>Experience</h2>
-        <ul>
-            <li>Oracle (Oct 2023 - Present) - Application Developer II</li>
-            <li>Tata Consultancy Services (Jan 2020 - Oct 2023) - PL/SQL | APEX Developer</li>
-        </ul>
-    </div>
+        <footer class="footer">
+            <p>© <span id="year"></span> Anuj Sharma · Crafted with care for a calm, readable, and secure web presence.</p>
+        </footer>
+    </main>
 
-    <footer>
-        &copy; 2025 Anuj Kumar Sharma | Bengaluru, India
-    </footer>
+    <script>
+        (function () {
+            const progressBar = document.getElementById('progressBar');
+            const yearNode = document.getElementById('year');
+            const typingText = document.getElementById('typingText');
+
+            if (yearNode) {
+                yearNode.textContent = new Date().getFullYear();
+            }
+
+            const phrases = [
+                'Oracle APEX design systems',
+                'PL/SQL performance tuning',
+                'AI-assisted enterprise workflows',
+                'clean, secure web experiences'
+            ];
+            let phraseIndex = 0;
+            let charIndex = 0;
+
+            function typeLoop() {
+                if (!typingText) return;
+                typingText.textContent = phrases[phraseIndex].slice(0, charIndex);
+                charIndex += 1;
+
+                if (charIndex > phrases[phraseIndex].length) {
+                    setTimeout(() => {
+                        charIndex = 0;
+                        phraseIndex = (phraseIndex + 1) % phrases.length;
+                        typeLoop();
+                    }, 900);
+                    return;
+                }
+
+                setTimeout(typeLoop, 80);
+            }
+
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                const ratio = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+                if (progressBar) {
+                    progressBar.style.width = `${Math.min(100, ratio)}%`;
+                }
+            });
+
+            typeLoop();
+        })();
+    </script>
 </body>
 </html>
