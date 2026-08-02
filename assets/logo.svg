@@ -1,0 +1,9 @@
+<svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ao-logo-title">
+  <title id="ao-logo-title">Anuj Official logo</title>
+  <path d="M50 20L20 80H80L50 20Z" stroke="#2c3e50" stroke-width="4" stroke-linejoin="round" fill="transparent"/>
+  <path d="M50 20V55" stroke="#2c3e50" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="50" cy="20" r="7" fill="#00cba9"/>
+  <circle cx="20" cy="80" r="7" fill="#2c3e50"/>
+  <circle cx="80" cy="80" r="7" fill="#2c3e50"/>
+  <circle cx="50" cy="55" r="5" fill="#00cba9"/>
+</svg>
