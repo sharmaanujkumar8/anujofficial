@@ -576,42 +576,11 @@
                 </ul>
             </div>
 
-            <div class="card">
-                <h2>Testimonials</h2>
-                <p class="note">Placeholder section ready for your future client feedback. Add a short quote, role, and company once you have one.</p>
-                <div class="service-grid">
-                    <article class="service-card">
-                        <h3>Client testimonial</h3>
-                        <p>“[Add a short testimonial here once available.]”</p>
-                        <p class="meta">— [Client name], [Role]</p>
-                    </article>
-                    <article class="service-card">
-                        <h3>Client testimonial</h3>
-                        <p>“[Add a short testimonial here once available.]”</p>
-                        <p class="meta">— [Client name], [Role]</p>
-                    </article>
-                </div>
-            </div>
-
             <div class="card" id="contact">
-                <h2>Get a free scoping call</h2>
-                <div class="contact-grid">
-                    <div>
-                        <p>If you need an Oracle APEX app built or modernized quickly, I can help you scope the solution and outline the delivery path.</p>
-                        <p>Email: <a href="mailto:anujofficial.contact@gmail.com">anujofficial.contact@gmail.com</a></p>
-                        <p>Contact by email for project discussions and scoping calls.</p>
-                        <p><a class="btn secondary" href="https://www.linkedin.com/in/anujkrsharmaeee/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a></p>
-                    </div>
-                    <form class="contact-form" id="contactForm">
-                        <label class="sr-only" for="name">Name</label>
-                        <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name">
-                        <label class="sr-only" for="email">Email</label>
-                        <input id="email" name="email" type="email" placeholder="Your email" autocomplete="email">
-                        <label class="sr-only" for="project">Project brief</label>
-                        <textarea id="project" name="project" rows="4" placeholder="Briefly describe the Oracle app or database work you need"></textarea>
-                        <button class="btn" type="submit">Send inquiry</button>
-                    </form>
-                </div>
+                <h2>Contact</h2>
+                <p>If you want to discuss an Oracle APEX, OCI, or AI-enabled Oracle project, reach out directly through email or LinkedIn.</p>
+                <p>Email: <a href="mailto:anujofficial.contact@gmail.com">anujofficial.contact@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/anujkrsharmaeee/" target="_blank" rel="noopener noreferrer">anujkrsharmaeee</a></p>
             </div>
         </section>
 
@@ -625,7 +594,6 @@
             const progressBar = document.getElementById('progressBar');
             const yearNode = document.getElementById('year');
             const typingText = document.getElementById('typingText');
-            const contactForm = document.getElementById('contactForm');
 
             if (yearNode) {
                 yearNode.textContent = new Date().getFullYear();
@@ -655,29 +623,6 @@
                 }
 
                 setTimeout(typeLoop, 80);
-            }
-
-            if (contactForm) {
-                contactForm.addEventListener('submit', function (event) {
-                    event.preventDefault();
-                    const name = document.getElementById('name').value.trim();
-                    const email = document.getElementById('email').value.trim();
-                    const project = document.getElementById('project').value.trim();
-                    const subject = `Project inquiry from ${name || 'website'}`;
-                    const body = `Name: ${name}\nEmail: ${email}\n\nProject details:\n${project}`;
-                    const mailtoLink = `mailto:anujofficial.contact@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-                    const link = document.createElement('a');
-                    link.href = mailtoLink;
-                    link.style.display = 'none';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-
-                    setTimeout(() => {
-                        window.location.href = mailtoLink;
-                    }, 100);
-                });
             }
 
             window.addEventListener('scroll', () => {
